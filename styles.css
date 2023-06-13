@@ -92,3 +92,13 @@ button{
     align-items: center;
 
 }
+
+
+footer{
+    margin: 20px;
+    padding: 50px;
+    height: 20px;
+    background-color: rgb(175, 123, 26);
+    color: white;
+    text-align: center;
+}
