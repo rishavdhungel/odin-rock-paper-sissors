@@ -21,9 +21,23 @@ function getComputerChoice(){
 computerSelection = getComputerChoice();
 
 //getting player selection from console
-    
-let playerSelection = prompt("Pick your choice:Rock, Paper, Scissors");
-playerSelection = playerSelection.toLowerCase();
+
+let playerSelection = prompt("Pick your choice:rock/paper/scissors");
+lowerplayerSelection = playerSelection.toLowerCase();
 console.log(playerSelection);
+
+//check the winner of the game
+//Rock beats scissors, scissors beat paper, and paper beats rock.
+
+if(lowerplayerSelection==computerSelection){
+    console.log("Its a tie");
+}
+else if((lowerplayerSelection=="rock" && computerSelection == "scissors")||(lowerplayerSelection=="scissors" && computerSelection == "paper")||(lowerplayerSelection=="paper" && computerSelection == "rock")){
+    console.log("Player Wins!");
+}
+else{
+    console.log("Computer Wins!")
+}
+
 
 
