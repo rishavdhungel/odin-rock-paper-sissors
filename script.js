@@ -10,11 +10,12 @@
 let choices = ["rock","paper","scissors"];
 let playerScore = 0;
 let computerScore = 0;
+let counter = 0;
 
 function getComputerChoice(){
 
     computerChoice = choices[(Math.floor(Math.random()*choices.length))];
-    console.log(computerChoice);
+
     return computerChoice;
 }
 
@@ -22,22 +23,53 @@ computerSelection = getComputerChoice();
 
 //getting player selection from console
 
-let playerSelection = prompt("Pick your choice:rock/paper/scissors");
-lowerplayerSelection = playerSelection.toLowerCase();
-console.log(playerSelection);
+function playRound(){
 
-//check the winner of the game
-//Rock beats scissors, scissors beat paper, and paper beats rock.
+    let playerSelection = prompt("Pick your choice:rock/paper/scissors");
+    let lowerplayerSelection = playerSelection.toLowerCase();
 
-if(lowerplayerSelection==computerSelection){
-    console.log("Its a tie");
+
+    //check the winner of the game
+    //Rock beats scissors, scissors beat paper, and paper beats rock.
+    console.log(lowerplayerSelection);
+    console.log(computerSelection);
+    if(lowerplayerSelection==computerSelection){
+        console.log("Its a tie");
+        counter += 1;
+
+    }
+    else if((lowerplayerSelection=="rock" && computerSelection == "scissors")||(lowerplayerSelection=="scissors" && computerSelection == "paper")||(lowerplayerSelection=="paper" && computerSelection == "rock")){
+        console.log("Player Wins");
+        playerScore += 1;
+        counter += 1;
+        if (playerScore == 5){
+            alert("Player Wins the Game");
+            return;
+            
+        }
+    }else{
+        console.log("Computer Wins!");
+        computerScore += 1;
+        counter += 1;
+        if(computerScore == 5){
+            alert("Computer Wins the Game");
+            return;
+
+        }
+    }
+
 }
-else if((lowerplayerSelection=="rock" && computerSelection == "scissors")||(lowerplayerSelection=="scissors" && computerSelection == "paper")||(lowerplayerSelection=="paper" && computerSelection == "rock")){
-    console.log("Player Wins!");
+
+
+while (counter<5){
+    playRound()
+    console.log(playerScore);
+    console.log(computerScore);
 }
-else{
-    console.log("Computer Wins!")
-}
 
 
-
+//initialize counter from zero 
+//repeat playround for 5 times
+//calculate result
+//greater score wins 
+//equal score tie
