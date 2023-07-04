@@ -17,14 +17,15 @@
     <h2 style="text-align: center; padding: 20px">Pick your choice</h2>
     <!--Rock Paper Sissors Selection Start-->
     <div  class="selection">
-        <div><img src="images/rock.png" alt="rock" id="rock" ></div>
-        <div><img src="images/paper.png" alt="paper" id="paper"></div>
-        <div><img src="images/scissors.png" alt="scissors" id="scissors"></div>
+        <div class="choice" data-playerChoice="rock" ><img src="images/rock.png" alt="rock" ></div>
+        <div class="choice" data-playerChoice="paper" ><img src="images/paper.png" alt="paper"  ></div>
+        <div class="choice" data-playerChoice="scissors"><img src="images/scissors.png" alt="scissors"  ></div>
         
     </div>
     <!--Rock Paper Sissors Selection End-->
 
     <!--Score Board Start-->
+    <p style="text-align: center;" id="tieline"></p>
     <div class="scoreBoard">
         <div>
             <h3>Player</h3>
@@ -42,7 +43,7 @@
 
     <!--Reset-->
     <div class="btn">
-        <button  type="button">Reset</button>
+        <button  type="button" onclick="loaction.reload()">Reset</button>
     </div>
     <script src="script.js"></script>
 
