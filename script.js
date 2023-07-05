@@ -9,13 +9,18 @@
 let playerScore = 0;
 let computerScore = 0;
 let counter = 0;
-
 // Getting random computer choice
 const choices = ['rock','paper','scissors']
 //add event listner to the three divs
 const Selection = document.querySelectorAll(".choice");
-console.log(Selection);
+// console.log(Selection);
 let playerChoice;
+const playerscorelabel = document.getElementById('playerscore');
+const computerscorelabel = document.getElementById('computerscore');
+const toplabel = document.getElementById('toplabel');
+// console.log(playerscorelabel);
+// console.log(computerscorelabel);
+
 
 let getPlayer = function(){
     playerChoice = this.getAttribute('data-playerChoice');
@@ -25,11 +30,14 @@ let getPlayer = function(){
     }else{
         if(playerScore > computerScore){
             alert("Player Wins the Game! Click Reset to play again!");
+            toplabel.innerText= "Game Over!! Player Wins!! Click Reset to play again!"
             return;
         }else if (computerScore > playerScore){
             alert("Computer Wins the Game! Click Reset to play again!");
+            toplabel.innerText= "Game Over!! Computer Wins!! Click Reset to play again!"
             return;
         }else{
+            toplabel.innerText= "Game Over!! IT's a Tie !! Click Reset to play again!"
             alert("Its a tie! Click Reset to play again!");
         } 
     }
@@ -50,7 +58,7 @@ function playRound(){
         playerScore += 1;
         console.log("Counter is:",counter);
         console.log("Player Score",playerScore);
-        // check()
+        playerscorelabel.innerText = playerScore;
 
     }
     else if((playerChoice == "rock" && computerChoice == "scissors")||(playerChoice == "scissors" && computerChoice == "paper")||(playerChoice == "paper" && computerChoice == "rock")){
@@ -59,8 +67,6 @@ function playRound(){
         console.log("Counter is:",counter);
         console.log("computer Score",computerScore);
         console.log("Player Score",playerScore);
-        // check()
-    
     }
     else{
         // console.log('Computer Win');
@@ -68,11 +74,7 @@ function playRound(){
         computerScore += 1;
         console.log("Counter is:",counter);
         console.log("computer Score",computerScore);
-        // check()
-    }
-
-    function check(){
-       
+        computerscorelabel.innerText = computerScore;
     }
 }
 
